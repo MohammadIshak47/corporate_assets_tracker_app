@@ -1,9 +1,8 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .models import Company, Device, Employee, DeviceAssignment
-from .serializers import (
-    CompanySerializer, DeviceSerializer, EmployeeSerializer, DeviceAssignmentSerializer
-)
+
+from tracker_app.serializers import*
 
 from django.contrib.auth import get_user_model
 
@@ -27,7 +26,7 @@ class UserAPIView(RetrieveAPIView):
         return self.request.user
 
 
-# Company Views
+# Company View
 
 class CompanyListCreateView(generics.ListCreateAPIView):
     queryset = Company.objects.all()
@@ -41,7 +40,7 @@ class CompanyRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated, IsAdminUser]
 
 
-# Device Views
+# Device View
 
 class DeviceListCreateView(generics.ListCreateAPIView):
     queryset = Device.objects.all()
@@ -61,7 +60,7 @@ class DeviceAssignView(generics.UpdateAPIView):
     permission_classes = [IsAuthenticated, IsAdminUser]
 
 
-# Employee Views
+# Employee View
 
 class EmployeeListCreateView(generics.ListCreateAPIView):
     queryset = Employee.objects.all()

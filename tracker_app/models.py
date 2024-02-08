@@ -62,7 +62,7 @@ class DeviceAssignment(models.Model):
     class Meta:
         verbose_name = 'DeviceAssignment'
         verbose_name_plural = 'DeviceAssignment'
-        ordering = ['-updated_at']  # from top to bottom
+        ordering = ['-updated_at']  
         db_table = 'DeviceAssignment'
 
     def __str__(self):
